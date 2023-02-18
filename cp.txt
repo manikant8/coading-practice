@@ -1,0 +1,26 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void display(int n, int digits){
+    cout<<"Number of Digits in "<<n<<" : "<<digits;
+}
+int main() {
+    cout<<"Enter a number : ";
+    unsigned int Orig_number, number;
+    unsigned int count = 0;
+    cin>>number;
+    Orig_number = number;
+    
+    if(number == 0) {
+        display(Orig_number, count); 
+        return 1;
+        
+    }
+    while(number > 0){
+        number = number/10;
+        count++;
+    }
+    display(Orig_number, count);
+
+    return 0;
+}
