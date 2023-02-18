@@ -3,25 +3,22 @@ Here, I keep my codes while practicing.
 
 #include<iostream>
 using namespace  std;
-int reverse(int num){
+
+// boolean function returns 1 when number is palindrome otherwise returns 0;
+bool reverse(int num){
     int rev = 0;
+    int temp = num;
     while(num){
     rev = rev*10 + (num%10);
     num/=10;
     }
-    return rev;
+    return (temp == rev);
 }
 
 int main(){
     int number;
     cout<<"Enter a Number : ";
     cin>>number;
-    int num_rev =  reverse(number);
-    if(num_rev == number){
-        cout<<"Palindrom number";
-    }
-    else{
-        cout<<"Not a Palindrom number";
-    }
+    cout<< reverse(number);
     return 0;
 }
