@@ -17,18 +17,11 @@ int main(){
     cout<<"Enter a Number : ";
     cin>>number;
     int num_rev =  reverse(number);
-    while(number){
-        if((num_rev%10) == (number)%10){
-            num_rev/=10;
-            number/=10;
-        }
-        else{
-            cout<<"Not a Palindrom Number";
-            return 1;
-        }
+    if(num_rev == number){
+        cout<<"Palindrom number";
     }
-    if(!number){
-        cout<<"Palindrom Number";
+    else{
+        cout<<"Not a Palindrom number";
     }
     return 0;
 }
