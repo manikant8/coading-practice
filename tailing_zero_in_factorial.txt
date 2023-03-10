@@ -34,10 +34,10 @@ int main() {
     // efficient solution with TC of logn and no overflow
     //   int n, countOf;
     //   cin>>n>>countOf;
-    //   int q = 0;
+    //   int count = 0;
     //   while(n){
-    //       n = ceil(n/countOf);
-    //       q = q+n;
+    //       n = floor(n/countOf);
+    //       count = count + n;
     //   }
     //     cout<<q;
 
