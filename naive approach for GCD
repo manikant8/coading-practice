@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// function to find minimum of two numbers.
+int min(int x, int y){
+    int min = (x > y) ? y : x;
+    return min;
+}
+
+// this code takes theta(n) TC and theta(1) SC
+void main()
+{
+    printf("Enter two numbers : ");
+    int x, y;
+    scanf("%d %d", &x, &y);
+    int i = min(x, y);  //why min? b'coz GCD cannot go beyond minimum of two numbers. 
+    for(; i >= 1; i--){
+        if(x%i == 0 && y%i == 0) {
+            printf("GCD is %d", i);
+            break;
+        }
+    }
+}
