@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <bitset>
+
+// Function to check if a binary number has more 1s than 0s
+bool hasMoreOnesThanZeros(const std::string& binaryStr) {
+    int onesCount = 0;
+    int zerosCount = 0;
+    for (char ch : binaryStr) {
+        if (ch == '1') onesCount++;
+        else if (ch == '0') zerosCount++;
+    }
+    return onesCount > zerosCount;
+}
+
+// Function to generate and print N-bit binary numbers with more 1s than 0s
+void generateBinaryNumbers(int N) {
+    int totalNumbers = 1 << N; // 2^N
+    for (int i = 0; i < totalNumbers; ++i) {
+        std::string binaryStr = std::bitset<32>(i).to_string(); // Convert to binary string with 32 bits
+        binaryStr = binaryStr.substr(32 - N); // Trim to N bits
+
+        if (hasMoreOnesThanZeros(binaryStr)) {
+            std::cout << binaryStr << std::endl;
+        }
+    }
+}
+
+int main() {
+    int N;
+    std::cout << "Enter the value of N: ";
+    std::cin >> N;
+
+    if (N <= 0) {
+        std::cerr << "N must be a positive integer." << std::endl;
+        return 1;
+    }
+
+    generateBinaryNumbers(N);
+
+    return 0;
+}
