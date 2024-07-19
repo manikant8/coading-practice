@@ -1,0 +1,34 @@
+
+#include <iostream>
+#include<vector>
+using namespace std;
+int _01knapsack(vector<int>& profit, vector<int>& weight, int n, int W, int i, vector<vector<int>>& dp){
+    if(W == 0 || n == 0) return 0;
+    if(weight[i] > W){
+        // not taking element
+        dp[n][W] =  _01knapsack(profit, weight, n-1, W, i+1, dp);
+        return dp[n][W];
+    }
+    else{
+        if(dp[n][W] == -1){
+            dp[n][W] = max(profit[i] + 
+                        _01knapsack(profit, weight, n-1, W-weight[i], i+1, dp), 
+                        _01knapsack(profit, weight, n-1, W, i+1, dp)
+                        );  
+            return dp[n][W];
+        }
+        else{
+            return dp[n][W];
+        }
+    }
+}
+int main()
+{
+    int n = 3;
+    vector<int> profit = { 60, 100, 120 };
+    vector<int> weight = { 10, 20, 30 };
+    int W = 50;
+    vector<vector<int>> dp(n+1, vector<int>(W+1, -1));
+    cout<<_01knapsack(profit, weight, n, W, 0, dp);
+    return 0;
+}
